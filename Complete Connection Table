@@ -1,0 +1,58 @@
+🔌 Complete Connection Table
+🟦 ESP32 ↔ MPU6050
+| MPU6050 Pin | Connect To ESP32 |
+| ----------- | ---------------- |
+| VCC         | 3.3V             |
+| GND         | GND              |
+| SDA         | GPIO 21          |
+| SCL         | GPIO 22          |
+| AD0         | GND              |
+
+🟨 Servo 1 (BASE Servo — GPIO 18)
+| Servo Wire             | Connection      |
+| ---------------------- | --------------- |
+| Signal (Yellow/Orange) | GPIO 18         |
+| VCC (Red)              | 5V Power Module |
+| GND (Brown/Black)      | Common GND      |
+
+
+🟨 Servo 2 (TOP Servo — GPIO 19)
+| Servo Wire             | Connection      |
+| ---------------------- | --------------- |
+| Signal (Yellow/Orange) | GPIO 19         |
+| VCC (Red)              | 5V Power Module |
+| GND (Brown/Black)      | Common GND      |
+
+
+⚡ Power Module
+| Power Module Pin | Connect To                                    |
+| ---------------- | --------------------------------------------- |
+| 5V Rail          | Both Servo Red Wires                          |
+| GND Rail         | Both Servo Ground Wires + ESP32 GND + MPU GND |
+
+🔴 Common Ground (VERY IMPORTANT)
+All of these connect together:
+Ground Connections
+ESP32 GND
+MPU6050 GND
+Servo 1 GND
+Servo 2 GND
+Power Module GND
+
+👉 One shared common ground.
+
+🔋 100µF Capacitor Connection
+Connect capacitor across servo power rails:
+| Capacitor Leg | Connect To |
+| ------------- | ---------- |
+| Long leg (+)  | 5V rail    |
+| Short leg (-) | GND rail   |
+
+📍Place it near where servo power wires connect.
+
+| Function   | ESP32 GPIO |
+| ---------- | ---------- |
+| MPU SDA    | 21         |
+| MPU SCL    | 22         |
+| Base Servo | 18         |
+| Top Servo  | 19         |
